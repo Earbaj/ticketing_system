@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
       // Use pushReplacement so splash can't be returned to by back button
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const OneBoarding()),
+        MaterialPageRoute(builder: (_) => OnboardingScreen()),
       );
     });
   }
