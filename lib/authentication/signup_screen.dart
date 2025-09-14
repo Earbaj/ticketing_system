@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_system/authentication/signup_screen.dart';
 
-class LoginScreen extends StatefulWidget {
+import 'login_screen.dart';
+
+class SignupScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignupScreenState createState() => _SignupScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignupScreenState extends State<SignupScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _obscurePassword = true;
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 40,
                         width: 40,
                         decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.white
-                          ),
+                          border: Border.all(color: Colors.white),
                           borderRadius: BorderRadius.all(Radius.circular(10)),
                         ),
                         child: IconButton(
@@ -45,18 +45,20 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () => Navigator.pop(context),
                         ),
                       ),
-                      SizedBox(width: 40,),
+                      SizedBox(
+                        width: 40,
+                      ),
                       Text(
-                        "Login",
+                        "Register",
                         style: TextStyle(color: Colors.white, fontSize: 18),
                       ),
                     ],
                   ),
                   SizedBox(height: height * 0.04),
-              
+
                   // Welcome Back
                   Text(
-                    "Welcome\nBack!",
+                    "Create\nAccount",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: width * 0.08,
@@ -64,14 +66,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(height: height * 0.04),
-              
+
                   // Email label
                   Text(
                     "Your Email",
                     style: TextStyle(color: Colors.white, fontSize: 14),
                   ),
                   SizedBox(height: 8),
-              
+
                   // Email field
                   TextFormField(
                     controller: _emailController,
@@ -97,14 +99,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     },
                   ),
                   SizedBox(height: 20),
-              
+
                   // Password label
                   Text(
                     "Password",
                     style: TextStyle(color: Colors.white, fontSize: 14),
                   ),
                   SizedBox(height: 8),
-              
+
                   // Password field
                   TextFormField(
                     controller: _passwordController,
@@ -143,20 +145,61 @@ class _LoginScreenState extends State<LoginScreen> {
                       return null;
                     },
                   ),
-              
-                  // Forgot password
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Forgot Password?",
-                        style: TextStyle(color: Colors.green, fontSize: 14),
+
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      // Custom styled Checkbox
+                      Checkbox(
+                        value: isChecked,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            isChecked = value ?? false;
+                          });
+                        },
+                        checkColor: Colors.white,
+                        // checkmark color
+                        activeColor: Colors.green,
+                        // when checked (background color)
+                        side: BorderSide(
+                          color: Colors.green, // border color when unchecked
+                          width: 2,
+                        ),
                       ),
-                    ),
+
+                      // Terms & Conditions Text
+                      Expanded(
+                        child: RichText(
+                          text: TextSpan(
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white, // default text color
+                            ),
+                            children: [
+                              TextSpan(text: "I agree to the "), // white
+                              TextSpan(
+                                text: "Terms and Conditions",
+                                style: TextStyle(
+                                  color: Colors.green,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                              TextSpan(text: "\n"), // line break
+                              TextSpan(
+                                text: "Privacy Policy",
+                                style: TextStyle(
+                                  color: Colors.green,
+                                  decoration: TextDecoration.underline,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                   SizedBox(height: 10),
-              
+
                   // Login button
                   SizedBox(
                     width: double.infinity,
@@ -177,7 +220,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       child: Text(
-                        "Login",
+                        "Create Account",
                         style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -186,7 +229,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(height: 20),
-              
+
                   // Divider with OR
                   Row(
                     children: [
@@ -199,7 +242,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   SizedBox(height: 20),
-              
+
                   // Google Sign in button
                   SizedBox(
                     width: double.infinity,
@@ -221,7 +264,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(height: 15),
-              
+
                   // Apple Sign in button
                   SizedBox(
                     width: double.infinity,
@@ -242,25 +285,27 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
 
+                  SizedBox(
+                    height: 65,
+                  ),
 
-                  SizedBox(height: 65,),
-              
                   // Sign up link
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don't have an account? ",
+                        "Already have an account? ",
                         style: TextStyle(color: Colors.white70, fontSize: 14),
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.push(context,
-                          MaterialPageRoute(builder: (context)=>SignupScreen())
-                          );
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginScreen()));
                         },
                         child: Text(
-                          "Sign up",
+                          "Login",
                           style: TextStyle(
                               color: Colors.green,
                               fontSize: 14,
