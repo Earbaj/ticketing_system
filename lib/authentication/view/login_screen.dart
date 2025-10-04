@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ticket_system/authentication/view/signup_screen.dart';
+
+import '../../homeScreen/view/dashboard.dart';
+import '../viewmodel/auth_view_model.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -12,8 +16,22 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordController = TextEditingController();
   bool _obscurePassword = true;
 
+
+  void _navigateToHome() {
+    // Replace with your home screen navigation
+    // Navigator.pushReplacementNamed(context, '/home');
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (_)=> HomeScreen()
+        )
+    );
+    print('User is already logged in, navigate to home screen');
+  }
+
   @override
   Widget build(BuildContext context) {
+    final authViewModel = Provider.of<AuthViewModel>(context);
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
@@ -64,7 +82,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   SizedBox(height: height * 0.04),
-              
+
+                  // Error message
+                  if (authViewModel.errorMessage.isNotEmpty)
+                    Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.red.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Colors.red),
+                      ),
+                      child: Text(
+                        authViewModel.errorMessage,
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    ),
+                  if (authViewModel.errorMessage.isNotEmpty) SizedBox(height: 10),
+
+
                   // Email label
                   Text(
                     "Your Email",
@@ -161,12 +197,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {
+                      onPressed: authViewModel.isLoading
+                          ? null
+                          : () async {
                         if (_formKey.currentState!.validate()) {
-                          // ✅ Valid form
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text("Logging in...")),
+                          authViewModel.clearError();
+                          final success = await authViewModel.login(
+                            _emailController.text.trim(),
+                            _passwordController.text,
                           );
+
+                          if (success && mounted) {
+                            // Navigate to home screen or dashboard
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text("Login successful!"),
+                                backgroundColor: Colors.green,
+                              ),
+                            );
+                            _navigateToHome();
+                          }
                         }
                       },
                       style: ElevatedButton.styleFrom(

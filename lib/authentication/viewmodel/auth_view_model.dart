@@ -63,12 +63,17 @@ class AuthViewModel with ChangeNotifier {
 
   // Check if user is logged in and set up Dio if true
   Future<bool> checkLoginStatus() async {
-    final accessToken = SharedPreferencesService.getAccessToken();
-    if (accessToken != null) {
-      DioClient().setAccessToken(accessToken);
-      return true;
+    try {
+      final accessToken = await SharedPreferencesService.getAccessToken();
+      if (accessToken != null) {
+        DioClient().setAccessToken(accessToken);
+        return true;
+      }
+      return false;
+    } catch (e) {
+      print('Error checking login status: $e');
+      return false;
     }
-    return false;
   }
 
   void clearError() {
