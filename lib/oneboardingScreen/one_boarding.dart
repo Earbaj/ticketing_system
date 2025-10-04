@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../authentication/login_screen.dart';
+import '../authentication/view/login_screen.dart';
 import '../utils/global_methode.dart';
 
 class OnboardingScreen extends StatefulWidget {
