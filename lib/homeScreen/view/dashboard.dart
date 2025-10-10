@@ -163,7 +163,7 @@ class HomePage extends StatelessWidget {
           const SizedBox(height: 15),
           Container(
             decoration: BoxDecoration(
-              color: Colors.grey[850],
+              color: Color(0xFF313133),
               borderRadius: BorderRadius.circular(16),
             ),
             padding: const EdgeInsets.all(16),
@@ -179,15 +179,29 @@ class HomePage extends StatelessWidget {
                 // ),
                 FlightPathWidget(),
                 const SizedBox(height: 1),
-                const Text("2hr 30min", style: TextStyle(color: Colors.grey)),
+                const Text("2hr 30min", style: TextStyle(color: Colors.white)),
                 const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    Text("DATE & TIME\nFeb 25, 11:30pm",
-                        style: TextStyle(fontSize: 12, color: Colors.grey)),
-                    Text("FLIGHT NUMBER\nAB4553",
-                        style: TextStyle(fontSize: 12, color: Colors.grey)),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("DATE & TIME",
+                            style: TextStyle(fontSize: 12, color: Color(0xFF8C8A93))),
+                        Text("Feb 25, 11:30pm",
+                            style: TextStyle(fontSize: 12, color: Colors.white)),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("FLIGHT NUMBER",
+                            style: TextStyle(fontSize: 12, color: Color(0xFF8C8A93))),
+                        Text("AB4553",
+                            style: TextStyle(fontSize: 12, color: Colors.white)),
+                      ],
+                    ),
                   ],
                 ),
                 // const Divider(height: 25, color: Colors.grey),
@@ -205,7 +219,7 @@ class HomePage extends StatelessWidget {
                     Icon(Icons.airplane_ticket, color: Colors.grey),
                     Text("\$500",
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
+                            fontSize: 18, fontWeight: FontWeight.bold,color: Colors.white)),
                   ],
                 ),
               ],
