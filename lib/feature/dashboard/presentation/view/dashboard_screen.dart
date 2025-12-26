@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../../../auth/presentation/view/login_screen.dart';
 import '../widget/ticket_card.dart';
 
 class DashboardScreen extends StatefulWidget  {
@@ -74,7 +75,11 @@ class _DashboardScreenState extends State<DashboardScreen>  with SingleTickerPro
                         ),
                       ],
                     ),
-                    Icon(Icons.logout,color: Colors.white,),
+                    GestureDetector(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
+                        },
+                        child: Icon(Icons.logout,color: Colors.white,)),
                   ],
                 ),
               ),
