@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_system/feature/auth/presentation/view/login_screen.dart';
+import 'package:ticket_system/feature/dashboard/presentation/view/dashboard_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -159,19 +160,25 @@ class SignUpScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        height: 50,
-                        width: 140,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFffe696e),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text("Sign Up",style: TextStyle(fontSize: 20,color: Colors.white),),
-                            Icon(Icons.arrow_circle_right_outlined,color: Colors.white,)
-                          ],
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context)=> DashboardScreen()));
+                        },
+                        child: Container(
+                          height: 50,
+                          width: 140,
+                          decoration: BoxDecoration(
+                            color: Color(0xFFffe696e),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text("Sign Up",style: TextStyle(fontSize: 20,color: Colors.white),),
+                              Icon(Icons.arrow_circle_right_outlined,color: Colors.white,)
+                            ],
+                          ),
                         ),
                       ),
                     ],
