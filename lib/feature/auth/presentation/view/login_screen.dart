@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ticket_system/feature/auth/presentation/view/sign_up_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -141,10 +142,15 @@ class LoginScreen extends StatelessWidget {
                           Text("Don't have account?",style: TextStyle(
                               fontSize: 15,color: Colors.black,),),
                           SizedBox(width: 10,),
-                          Text("Sign up",style: TextStyle(
-                            fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold,
-                              decoration: TextDecoration.underline
-                          ),),
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUpScreen()));
+                            },
+                            child: Text("Sign up",style: TextStyle(
+                              fontSize: 15,color: Colors.black,fontWeight: FontWeight.bold,
+                                decoration: TextDecoration.underline
+                            ),),
+                          ),
                         ],
                       ),
                     ],
