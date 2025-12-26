@@ -13,8 +13,10 @@ class TicketCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         gradient: const LinearGradient(
           colors: [
-            Color(0xFF1E1E2C),
-            Color(0xFF2A2A3C),
+            // Color(0xFF1E1E2C),
+            // Color(0xFF2A2A3C),
+            Color(0xFFffe696e),
+            Color(0xFFffe696e)
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -39,7 +41,7 @@ class TicketCard extends StatelessWidget {
                 padding:
                 const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
-                  color: Colors.black26,
+                  color: Colors.black45,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Text(
@@ -59,6 +61,7 @@ class TicketCard extends StatelessWidget {
           Row(
             children: [
               _timeColumn('10:15 PM', '20 Jan'),
+              SizedBox(width: 10,),
               Expanded(
                 child: Column(
                   children: [
@@ -66,31 +69,48 @@ class TicketCard extends StatelessWidget {
                       children: List.generate(
                         15,
                             (index) => Expanded(
-                          child: Container(
+                          child: index == 0 || index == 15-1 ?Container(
+                            height: 10,
+                            width: 10,
+                            padding: EdgeInsets.all(2),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30)
+                            ),
+                            child: Container(
+                              height: 10,
+                              width: 10,
+                              decoration: BoxDecoration(
+                                  color: Colors.black45,
+                                  borderRadius: BorderRadius.circular(30)
+                              ),
+                            ),
+                          ):Container(
                             height: 2,
                             margin: const EdgeInsets.symmetric(horizontal: 2),
                             color: index == 7
-                                ? Colors.orange
-                                : Colors.white24,
+                                ? Colors.black
+                                : Colors.black26,
                           ),
                         ),
                       ),
                     ),
                     const SizedBox(height: 6),
                     const Icon(
-                      Icons.train,
-                      color: Colors.orange,
+                      Icons.bus_alert,
+                      color: Colors.black,
                       size: 18,
                     ),
                   ],
                 ),
               ),
+              SizedBox(width: 10,),
               _timeColumn('11:20 PM', '20 Jan', alignEnd: true),
             ],
           ),
 
           const SizedBox(height: 16),
-          const Divider(color: Colors.white24),
+          const Divider(color: Colors.white54),
 
           /// Bottom Row
           Row(
@@ -99,8 +119,9 @@ class TicketCard extends StatelessWidget {
               Text(
                 'Ticket price',
                 style: TextStyle(
-                  color: Colors.white54,
+                  color: Colors.white70,
                   fontSize: 14,
+                  fontWeight: FontWeight.bold
                 ),
               ),
               Text(
@@ -136,7 +157,7 @@ class TicketCard extends StatelessWidget {
         Text(
           date,
           style: const TextStyle(
-            color: Colors.white54,
+            color: Colors.white70,
             fontSize: 12,
           ),
         ),
