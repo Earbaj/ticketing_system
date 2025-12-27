@@ -39,6 +39,7 @@ dependencies:
   provider: ^6.1.2
   font_awesome_flutter: ^10.6.0
   dotted_line: ^3.2.2
+  google_maps_flutter: ^2.12.1
 
 dev_dependencies:
   flutter_test:
