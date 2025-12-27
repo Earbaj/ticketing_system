@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ticket_system/feature/auth/presentation/view/sign_up_screen.dart';
 import 'package:ticket_system/feature/dashboard/presentation/view/dashboard_screen.dart';
 
+import 'forget_password_screen.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -132,10 +134,16 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Text("Forget Password?",style: TextStyle(
-                              fontSize: 15,color: Colors.black,
-                            decoration: TextDecoration.underline
-                          ),),
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context)=> ForgetPasswordScreen()));
+                            },
+                            child: Text("Forget Password?",style: TextStyle(
+                                fontSize: 15,color: Colors.black,
+                              decoration: TextDecoration.underline
+                            ),),
+                          ),
                         ],
                       ),
                     ],
