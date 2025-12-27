@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ticket_system/feature/auth/presentation/view/login_screen.dart';
 import 'package:ticket_system/feature/auth/presentation/view/sign_up_screen.dart';
 import 'package:ticket_system/feature/dashboard/presentation/view/dashboard_screen.dart';
 
@@ -25,6 +26,17 @@ class ForgetPasswordScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      GestureDetector(
+                          onTap: (){
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context)=> LoginScreen()));
+                          },
+                          child: Icon(Icons.close_outlined,size: 35,color: Color(0xFFffe696e),)),
+                    ],
+                  ),
                   SizedBox(height: 25,),
                   Text("Ops!! You Forgot Password!!",style: TextStyle(fontSize: 45,fontWeight: FontWeight.bold),),
                   SizedBox(height: 10,),
