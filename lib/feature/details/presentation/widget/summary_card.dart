@@ -24,7 +24,7 @@ class SummaryCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.black26),
+          color: Color(0xFFffe696e),
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
@@ -33,11 +33,11 @@ class SummaryCard extends StatelessWidget {
             _row("Seat Numbers", selectedSeats.join(', ')),
             _row("Seat Type", "AC Seater"),
             _row("Total Seats", selectedSeats.length.toString()),
-            const Divider(),
+            const Divider(color: Colors.white70,),
             _row("Price / Seat", "৳$seatPrice"),
             _row("Service Fee", "৳$serviceFee"),
             _row("Discount", "৳$discount"),
-            const Divider(),
+            const Divider(color: Colors.white70,),
             _row("Total Payable", "৳$totalPrice", bold: true),
           ],
         ),
@@ -51,11 +51,11 @@ class SummaryCard extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: const TextStyle(color: Colors.black54)),
+          Text(title, style: const TextStyle(color: Colors.white)),
           Text(
             value.isEmpty ? "-" : value,
             style: TextStyle(
-              fontWeight: bold ? FontWeight.bold : FontWeight.w600,
+              fontWeight: bold ? FontWeight.bold : FontWeight.w600,color: Colors.white
             ),
           ),
         ],
