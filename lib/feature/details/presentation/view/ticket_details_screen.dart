@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_system/feature/dashboard/presentation/view/dashboard_screen.dart';
+import 'package:ticket_system/feature/details/presentation/view/buy_ticket_screen.dart';
 
 import '../../data/model/ticket_details.dart';
 import '../widget/ticket_details_widget.dart';
@@ -52,11 +53,11 @@ class TicketDetailsScreen extends StatelessWidget {
                   GestureDetector(
                     onTap: (){
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context)=> DashboardScreen()));
+                          MaterialPageRoute(builder: (context)=> BuyTicketScreen(ticket: ticket)));
                     },
                     child: Container(
                       height: 50,
-                      width: 200,
+                      width: 120,
                       decoration: BoxDecoration(
                         color: Color(0xFFffe696e),
                         borderRadius: BorderRadius.circular(15),
@@ -64,7 +65,7 @@ class TicketDetailsScreen extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Text("Buy Ticket",style: TextStyle(fontSize: 20,color: Colors.white),),
+                          Text("Next",style: TextStyle(fontSize: 20,color: Colors.white),),
                           Icon(Icons.arrow_circle_right_outlined,color: Colors.white,)
                         ],
                       ),
