@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_system/feature/dashboard/presentation/view/dashboard_screen.dart';
+import 'package:ticket_system/feature/details/presentation/view/proceed_payment_screen.dart';
 
 import '../../data/model/seat_model.dart';
 import '../../data/model/ticket_details.dart';
@@ -137,7 +138,13 @@ class _BuyTicketScreenState extends State<BuyTicketScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: GestureDetector(
-                  onTap: selectedSeats.isEmpty ? null : () {},
+                  onTap: selectedSeats.isEmpty ? null : () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context)=> ProceedPaymentScreen(
+                            busName: widget.ticket.busName,
+                          seats: selectedSeats.toList(),
+                        )));
+                  },
                   child: Container(
                     height: 50,
                     width: 220,

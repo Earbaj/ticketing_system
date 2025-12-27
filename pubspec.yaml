@@ -40,6 +40,7 @@ dependencies:
   font_awesome_flutter: ^10.6.0
   dotted_line: ^3.2.2
   google_maps_flutter: ^2.12.1
+  flutter_tabler_icons: ^1.43.0
 
 dev_dependencies:
   flutter_test:
