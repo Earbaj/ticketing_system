@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ticket_system/splashScreen/splash_screen.dart';
+import 'package:ticket_system/feature/auth/presentation/view/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: SplashScreen(),
+      debugShowCheckedModeBanner: false,
+      home: LoginScreen(),
     );
   }
 }
