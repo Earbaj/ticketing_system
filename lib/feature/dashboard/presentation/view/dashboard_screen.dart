@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../auth/presentation/view/login_screen.dart';
 import '../../../details/data/model/ticket_details.dart';
 import '../../../details/presentation/view/ticket_details_screen.dart';
+import '../../../profile/presentation/view/profile_screen.dart';
 import '../widget/ticket_card.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -59,15 +60,23 @@ class _DashboardScreenState extends State<DashboardScreen>
               children: [
                 Row(
                   children: [
-                    CircleAvatar(
-                      radius: 25,
-                      // Sets the size of the avatar
-                      backgroundColor: Colors.white,
-                      // Color displayed if no image is present
-                      child: Text(
-                        'ES',
-                        style: TextStyle(fontSize: 20.0, color: Colors.black45),
-                      ), // Child widget, e.g., user initials
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProfileScreen()));
+                      },
+                      child: CircleAvatar(
+                        radius: 25,
+                        // Sets the size of the avatar
+                        backgroundColor: Colors.white,
+                        // Color displayed if no image is present
+                        child: Text(
+                          'ES',
+                          style: TextStyle(fontSize: 20.0, color: Colors.black45),
+                        ), // Child widget, e.g., user initials
+                      ),
                     ),
                     SizedBox(
                       width: 10,
