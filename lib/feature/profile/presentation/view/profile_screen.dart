@@ -119,7 +119,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: 48,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: Colors.white,
+                              color: const Color(0xFFffe696e),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.2),
@@ -128,13 +128,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                               ],
                               border: Border.all(
-                                color: const Color(0xFFffe696e),
+                                color: Colors.white,
                                 width: 2,
                               ),
                             ),
                             child: const Icon(
                               Icons.camera_alt_rounded,
-                              color: Color(0xFFffe696e),
+                              color: Colors.white,
                               size: 24,
                             ),
                           ),
