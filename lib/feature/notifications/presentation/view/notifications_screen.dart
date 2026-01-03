@@ -10,12 +10,10 @@ class NotificationsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Color(0xFFffe696e),
         elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
-        ),
+        centerTitle: true,
         title: Text(
           'Notifications',
           style: TextStyle(
@@ -24,14 +22,6 @@ class NotificationsScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.more_vert, color: Colors.white),
-            onPressed: () {
-              // Handle more options
-            },
-          ),
-        ],
       ),
       body: Column(
         children: [
@@ -93,23 +83,16 @@ class NotificationsScreen extends StatelessWidget {
               padding: EdgeInsets.all(16),
               itemCount: notifications.length,
               itemBuilder: (context, index) {
-                return NotificationCard(notification: notifications[index]);
+                return Padding(
+                  padding: EdgeInsets.only(bottom: index == notifications.length-1 ? 65:0.0),
+                  child: NotificationCard(notification: notifications[index]),
+                );
               },
             ),
           ),
         ],
       ),
 
-      // Mark All as Read Button
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          // Mark all as read functionality
-        },
-        backgroundColor: Color(0xFFffe696e),
-        foregroundColor: Colors.white,
-        icon: Icon(Icons.mark_email_read_outlined),
-        label: Text('Mark All Read'),
-      ),
     );
   }
 
