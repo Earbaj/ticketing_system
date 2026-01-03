@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticket_system/feature/history/presentation/view/ticket_details_screen.dart';
+import '../../../../core/constant/app_color.dart';
 import '../../data/model/ticket_history_model.dart';
 import '../widget/ticket_history_card.dart';
 
@@ -14,7 +15,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
   final List<TicketHistory> allTickets = [
     TicketHistory(
       id: "1",
-      busName: "Green Line",
+      busName: "Bus 1",
       route: "Dhaka → Chittagong",
       date: "25 Jan 2025",
       time: "10:30 PM",
@@ -36,7 +37,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     ),
     TicketHistory(
       id: "2",
-      busName: "Shohagh Paribahan",
+      busName: "Bus 2",
       route: "Dhaka → Sylhet",
       date: "20 Jan 2025",
       time: "9:00 PM",
@@ -58,7 +59,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     ),
     TicketHistory(
       id: "3",
-      busName: "Hanif Enterprise",
+      busName: "Bus 3",
       route: "Dhaka → Rajshahi",
       date: "15 Jan 2025",
       time: "8:00 PM",
@@ -80,7 +81,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     ),
     TicketHistory(
       id: "4",
-      busName: "ENA Transport",
+      busName: "Bus 4",
       route: "Dhaka → Cox's Bazar",
       date: "30 Jan 2025",
       time: "11:00 PM",
@@ -102,7 +103,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     ),
     TicketHistory(
       id: "5",
-      busName: "Soudia Coach",
+      busName: "Bus 5",
       route: "Dhaka → Khulna",
       date: "28 Jan 2025",
       time: "7:30 AM",
@@ -159,7 +160,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
       case "Upcoming":
         return Colors.blue;
       case "All":
-        return Color(0xFFffe696e);
+        return AppColor.primaryColor;
       default:
         return Colors.grey;
     }
@@ -212,7 +213,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
-        backgroundColor: Color(0xFFffe696e),
+        backgroundColor: AppColor.primaryColor,
         elevation: 0,
         automaticallyImplyLeading: false,
         centerTitle: true,

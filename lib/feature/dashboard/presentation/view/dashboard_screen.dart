@@ -1,4 +1,5 @@
 
+import '../../../../core/constant/app_color.dart';
 import '../../../auth/presentation/view/login_screen.dart';
 import '../../../details/data/model/ticket_details.dart';
 import '../../../details/presentation/view/ticket_details_screen.dart';
@@ -136,7 +137,7 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
   }
   AppBar _buildAppBar() {
     return AppBar(
-      backgroundColor: Color(0xFFffe696e),
+      backgroundColor: AppColor.primaryColor,
       elevation: 4,
       shadowColor: Colors.black.withOpacity(0.1),
       automaticallyImplyLeading: false,

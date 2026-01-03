@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constant/app_color.dart';
 import '../../../history/presentation/view/histroy_screen.dart';
 import '../../../notifications/presentation/view/notifications_screen.dart';
 import '../../../profile/presentation/view/profile_screen.dart';
@@ -110,9 +111,9 @@ class _MainScreenState extends State<MainScreen> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(isActive ? activeIcon : icon, color: isActive ? Color(0xFFffe696e) : Colors.grey.shade600, size: 22),
+          Icon(isActive ? activeIcon : icon, color: isActive ? AppColor.primaryColor : Colors.grey.shade600, size: 22),
           SizedBox(height: 2),
-          Text(label, style: TextStyle(color: isActive ? Color(0xFFffe696e) : Colors.grey.shade600, fontSize: 10, fontWeight: isActive ? FontWeight.w600 : FontWeight.normal)),
+          Text(label, style: TextStyle(color: isActive ? AppColor.primaryColor : Colors.grey.shade600, fontSize: 10, fontWeight: isActive ? FontWeight.w600 : FontWeight.normal)),
         ],
       ),
     );

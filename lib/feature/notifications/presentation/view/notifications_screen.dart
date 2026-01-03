@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constant/app_color.dart';
 import '../../data/model/notifications_model.dart';
 
 class NotificationsScreen extends StatelessWidget {
@@ -11,7 +12,7 @@ class NotificationsScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFFffe696e),
+        backgroundColor: AppColor.primaryColor,
         elevation: 0,
         centerTitle: true,
         title: Text(
@@ -29,7 +30,7 @@ class NotificationsScreen extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: Color(0xFFffe696e).withOpacity(0.1),
+              color: AppColor.primaryColor.withOpacity(0.1),
               border: Border(
                 bottom: BorderSide(color: Colors.grey.shade200),
               ),
@@ -126,7 +127,7 @@ class NotificationsScreen extends StatelessWidget {
       onSelected: (bool value) {
         // Handle filter selection
       },
-      selectedColor: Color(0xFFffe696e),
+      selectedColor: AppColor.primaryColor,
       backgroundColor: Colors.grey.shade100,
       labelStyle: TextStyle(
         color: isSelected ? Colors.white : Colors.black87,
@@ -256,7 +257,7 @@ class NotificationCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: const Color(0xFFffe696e),
+        color: const Color(0xFF03A6A1),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Container(

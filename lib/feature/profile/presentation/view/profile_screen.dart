@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constant/app_color.dart';
+
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
@@ -22,7 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         automaticallyImplyLeading: false,
         centerTitle: true,
         title: const Text("Profile",style: TextStyle(color: Colors.white),),
-        backgroundColor: const Color(0xFFffe696e),
+        backgroundColor: AppColor.primaryColor,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -248,14 +250,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            const Color(0xFFffe696e),
-                            const Color(0xFFffe696e).withValues(alpha: 0.8),
-                          ],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
-                        ),
+                          color:AppColor.primaryButtonColor,
+                        // gradient: LinearGradient(
+                        //   colors: [
+                        //     AppColor.primaryButtonColor,
+                        //     const Color(0xFFffe696e).withValues(alpha: 0.9),
+                        //   ],
+                        //   begin: Alignment.centerLeft,
+                        //   end: Alignment.centerRight,
+                        // ),
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(

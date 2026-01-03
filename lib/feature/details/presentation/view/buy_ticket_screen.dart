@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ticket_system/feature/dashboard/presentation/view/dashboard_screen.dart';
 import 'package:ticket_system/feature/details/presentation/view/proceed_payment_screen.dart';
 
+import '../../../../core/constant/app_color.dart';
 import '../../data/model/seat_model.dart';
 import '../../data/model/ticket_details.dart';
 import '../widget/date_selector.dart';
@@ -92,7 +93,7 @@ class _BuyTicketScreenState extends State<BuyTicketScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xFFffe696e),
+        backgroundColor: AppColor.primaryColor,
         leading: GestureDetector(
           onTap: () => Navigator.pop(context),
           child: const Icon(Icons.arrow_back, color: Colors.white),
@@ -157,7 +158,7 @@ class _BuyTicketScreenState extends State<BuyTicketScreen> {
                     decoration: BoxDecoration(
                       color: selectedSeats.isEmpty
                           ? Colors.grey
-                          : const Color(0xFFffe696e),
+                          : AppColor.primaryColor,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: const Center(

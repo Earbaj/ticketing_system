@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ticket_system/feature/dashboard/presentation/view/dashboard_screen.dart';
 import 'package:ticket_system/feature/details/presentation/view/buy_ticket_screen.dart';
 
+import '../../../../core/constant/app_color.dart';
 import '../../data/model/ticket_details.dart';
 import '../widget/ticket_details_widget.dart';
 
@@ -15,7 +16,7 @@ class TicketDetailsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xFFffe696e),
+        backgroundColor: AppColor.primaryColor,
         leading: GestureDetector(
           onTap: () => Navigator.pop(context),
           child: const Icon(Icons.arrow_back, color: Colors.white),
@@ -66,7 +67,7 @@ class TicketDetailsScreen extends StatelessWidget {
                       height: 50,
                       width: 120,
                       decoration: BoxDecoration(
-                        color: Color(0xFFffe696e),
+                        color: AppColor.primaryColor,
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: Row(

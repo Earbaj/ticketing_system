@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constant/app_color.dart';
 import '../../data/model/ticket_history_model.dart';
 
 class TicketHistoryCard extends StatelessWidget {
@@ -15,7 +16,7 @@ class TicketHistoryCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: const Color(0xFFffe696e),
+        color: AppColor.primaryColor,
         borderRadius: BorderRadius.circular(14),
         boxShadow: [
           BoxShadow(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../core/constant/app_color.dart';
 import '../../data/model/ticket_history_model.dart';
 
 class HistoryTicketDetailsScreen extends StatefulWidget {
@@ -142,16 +143,21 @@ class _HistoryTicketDetailsScreenState extends State<HistoryTicketDetailsScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Ticket Details"),
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back,color: Colors.white,),
+          onPressed: (){Navigator.pop(context);},
+        ),
+        title: Text("Ticket Details",style: TextStyle(color: Colors.white,),),
+        backgroundColor: AppColor.primaryColor,
         actions: [
-          if (widget.ticket.canCancel)
             IconButton(
-              icon: Icon(Icons.cancel_outlined),
+              icon: Icon(Icons.cancel_outlined,color: Colors.white,),
               onPressed: _cancelTicket,
               tooltip: "Cancel Ticket",
             ),
           IconButton(
-            icon: Icon(Icons.download),
+            icon: Icon(Icons.download,color: Colors.white,),
             onPressed: _downloadTicket,
             tooltip: "Download Ticket",
           ),

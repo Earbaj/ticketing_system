@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constant/app_color.dart';
 import '../widget/ticket_details_widget.dart';
 
 class ProceedPaymentScreen extends StatefulWidget {
@@ -31,7 +32,7 @@ class _ProceedPaymentScreenState extends State<ProceedPaymentScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xFFffe696e),
+        backgroundColor: AppColor.primaryColor,
         leading: GestureDetector(
           onTap: () => Navigator.pop(context),
           child: const Icon(Icons.arrow_back, color: Colors.white),
@@ -147,7 +148,7 @@ class _ProceedPaymentScreenState extends State<ProceedPaymentScreen> {
                     height: 50,
                     width: 220,
                     decoration: BoxDecoration(
-                      color: Color(0xFFffe696e),
+                      color: AppColor.primaryColor,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: const Center(
