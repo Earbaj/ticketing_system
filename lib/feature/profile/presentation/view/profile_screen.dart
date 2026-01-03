@@ -18,6 +18,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: const Text("Profile",style: TextStyle(color: Colors.white),),
+        backgroundColor: const Color(0xFFffe696e),
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -25,52 +31,52 @@ class _ProfileScreenState extends State<ProfileScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // App Bar
-              Container(
-                padding: const EdgeInsets.only(left: 15, right: 15),
-                height: 70,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: const Color(0xFFffe696e),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      blurRadius: 4,
-                      offset: const Offset(0, 2),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Icon(
-                        Icons.arrow_back,
-                        color: Colors.white,
-                        size: 28,
-                      ),
-                    ),
-                    const SizedBox(width: 120),
-                    const Expanded(
-                      child: Text(
-                        'Profile',
-                        style: TextStyle(
-                          fontSize: 22.0,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Container(
+              //   padding: const EdgeInsets.only(left: 15, right: 15),
+              //   height: 70,
+              //   width: double.infinity,
+              //   decoration: BoxDecoration(
+              //     color: const Color(0xFFffe696e),
+              //     boxShadow: [
+              //       BoxShadow(
+              //         color: Colors.black.withOpacity(0.1),
+              //         blurRadius: 4,
+              //         offset: const Offset(0, 2),
+              //       ),
+              //     ],
+              //   ),
+              //   child: Row(
+              //     children: [
+              //       GestureDetector(
+              //         onTap: () {
+              //           Navigator.pop(context);
+              //         },
+              //         child: const Icon(
+              //           Icons.arrow_back,
+              //           color: Colors.white,
+              //           size: 28,
+              //         ),
+              //       ),
+              //       const SizedBox(width: 120),
+              //       const Expanded(
+              //         child: Text(
+              //           'Profile',
+              //           style: TextStyle(
+              //             fontSize: 22.0,
+              //             color: Colors.white,
+              //             fontWeight: FontWeight.bold,
+              //           ),
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
 
               // Avatar Section
               Container(
                 padding: const EdgeInsets.symmetric(vertical: 30),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFffe696e).withOpacity(0.1),
+                  color: const Color(0xFFffe696e).withValues(alpha: 0.25),
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(30),
                     bottomRight: Radius.circular(30),
@@ -89,7 +95,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           color: const Color(0xFFffe696e),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.15),
+                              color: Colors.black.withValues(alpha: 0.15),
                               blurRadius: 12,
                               offset: const Offset(0, 6),
                             ),
@@ -122,7 +128,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               color: const Color(0xFFffe696e),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.2),
+                                  color: Colors.black.withValues(alpha: 0.2),
                                   blurRadius: 6,
                                   offset: const Offset(0, 3),
                                 ),
@@ -219,7 +225,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             icon: Icons.transgender,
                             title: 'Gender',
                             value: gender,
-                            color: Colors.purple.withOpacity(0.1),
+                            color: Colors.purple.withValues(alpha: 0.1),
                             iconColor: Colors.purple,
                           ),
                         ),
@@ -229,7 +235,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             icon: Icons.cake_outlined,
                             title: 'Age',
                             value: '$age years',
-                            color: Colors.orange.withOpacity(0.1),
+                            color: Colors.orange.withValues(alpha: 0.1),
                             iconColor: Colors.orange,
                           ),
                         ),
@@ -245,7 +251,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         gradient: LinearGradient(
                           colors: [
                             const Color(0xFFffe696e),
-                            const Color(0xFFffe696e).withOpacity(0.8),
+                            const Color(0xFFffe696e).withValues(alpha: 0.8),
                           ],
                           begin: Alignment.centerLeft,
                           end: Alignment.centerRight,
@@ -253,7 +259,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                            color: const Color(0xFFffe696e).withOpacity(0.3),
+                            color: const Color(0xFFffe696e).withValues(alpha: 0.3),
                             blurRadius: 8,
                             offset: const Offset(0, 4),
                           ),
@@ -338,7 +344,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           border: Border.all(color: Colors.grey.shade200, width: 1),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: Colors.black.withValues(alpha: 0.05),
               blurRadius: 4,
               offset: const Offset(0, 2),
             ),
@@ -349,7 +355,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: const Color(0xFFffe696e).withOpacity(0.1),
+                color: const Color(0xFFffe696e).withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: Icon(
@@ -497,94 +503,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 size: 24,
               ),
             ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  // Dialog for editing fields
-  void _editField(String field, String currentValue, Function(String) onSave) {
-    TextEditingController controller = TextEditingController(text: currentValue);
-
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text('Edit $field'),
-        content: TextField(
-          controller: controller,
-          decoration: InputDecoration(
-            hintText: 'Enter new $field',
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              if (controller.text.isNotEmpty) {
-                onSave(controller.text);
-                Navigator.pop(context);
-              }
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color(0xFFffe696e),
-            ),
-            child: const Text('Save'),
-          ),
-        ],
-      ),
-    );
-  }
-
-  // Gender selection dialog
-  void _selectGender() {
-    List<String> genders = ['Male', 'Female', 'Other', 'Prefer not to say'];
-
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Select Gender'),
-        content: SizedBox(
-          width: double.maxFinite,
-          child: ListView.builder(
-            shrinkWrap: true,
-            itemCount: genders.length,
-            itemBuilder: (context, index) => ListTile(
-              title: Text(genders[index]),
-              onTap: () {
-                setState(() => gender = genders[index]);
-                Navigator.pop(context);
-              },
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  // Age selection dialog
-  void _selectAge() {
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Select Age'),
-        content: SizedBox(
-          height: 200,
-          child: YearPicker(
-            firstDate: DateTime(1900, 1, 1),
-            lastDate: DateTime.now(),
-            selectedDate: DateTime.now().subtract(Duration(days: int.parse(age) * 365)),
-            onChanged: (DateTime date) {
-              int selectedAge = DateTime.now().year - date.year;
-              setState(() => age = selectedAge.toString());
-              Navigator.pop(context);
-            },
           ),
         ),
       ),

@@ -151,18 +151,12 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
             children: [
               Row(
                 children: [
-                  GestureDetector(
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => ProfileScreen())
-                    ),
-                    child: CircleAvatar(
-                      radius: 25,
-                      backgroundColor: Colors.white,
-                      child: Text(
-                          'ES',
-                          style: TextStyle(fontSize: 20, color: Colors.black45)
-                      ),
+                  CircleAvatar(
+                    radius: 25,
+                    backgroundColor: Colors.white,
+                    child: Text(
+                        'ES',
+                        style: TextStyle(fontSize: 20, color: Colors.black45)
                     ),
                   ),
                   SizedBox(width: 10),
