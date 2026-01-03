@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ticket_system/feature/auth/presentation/view/login_screen.dart';
 import 'package:ticket_system/feature/dashboard/presentation/view/dashboard_screen.dart';
 
+import '../../../dashboard/presentation/view/main_screen.dart';
+
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
@@ -163,7 +165,7 @@ class SignUpScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: (){
                           Navigator.push(context,
-                              MaterialPageRoute(builder: (context)=> DashboardScreen()));
+                              MaterialPageRoute(builder: (context)=> MainScreen()));
                         },
                         child: Container(
                           height: 50,

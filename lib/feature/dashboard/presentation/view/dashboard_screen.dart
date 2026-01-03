@@ -166,6 +166,11 @@ import '../widget/ticket_card.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {
+  final ScrollController scrollController;
+  const DashboardScreen({
+    Key? key,
+    required this.scrollController,
+  }) : super(key: key);
   @override
   _DashboardScreenState createState() => _DashboardScreenState();
 }
@@ -173,7 +178,7 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final List<String> busNames = ['Bus 1', 'Bus 2', 'Bus 3', 'Bus 4', 'Bus 5', 'Bus 6', 'Bus 7', 'Bus 8'];
-  late ScrollController _scrollController;
+  //late ScrollController _scrollController;
   bool _showFloatingNav = true;
   double _previousScroll = 0.0;
   int _currentIndex = 0;
@@ -187,48 +192,48 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
         setState(() {}); // rebuild jokhon tab change hoi
       }
     });
-    _scrollController = ScrollController();
-    _scrollController.addListener(_handleScroll);
+    //_scrollController = ScrollController();
+    //_scrollController.addListener(_handleScroll);
   }
 
-  void _handleScroll() {
-    final currentScroll = _scrollController.position.pixels;
-    final threshold = 30.0;
-    if (currentScroll > _previousScroll && currentScroll > threshold) {
-      if (_showFloatingNav) setState(() => _showFloatingNav = false);
-    } else if (currentScroll < _previousScroll || currentScroll <= threshold) {
-      if (!_showFloatingNav) setState(() => _showFloatingNav = true);
-    }
-    _previousScroll = currentScroll;
-  }
+  // void _handleScroll() {
+  //   final currentScroll = _scrollController.position.pixels;
+  //   final threshold = 30.0;
+  //   if (currentScroll > _previousScroll && currentScroll > threshold) {
+  //     if (_showFloatingNav) setState(() => _showFloatingNav = false);
+  //   } else if (currentScroll < _previousScroll || currentScroll <= threshold) {
+  //     if (!_showFloatingNav) setState(() => _showFloatingNav = true);
+  //   }
+  //   _previousScroll = currentScroll;
+  // }
 
-  void _onNavTap(int index) {
-    setState(() => _currentIndex = index);
-    // Navigation example
-    Widget targetScreen;
-    switch (index) {
-      case 0:
-        targetScreen = DashboardScreen();
-        break;
-      case 1:
-        targetScreen = HistroyScreen();
-        break;
-      case 2:
-        targetScreen = NotificationsScreen();
-        break;
-      case 3:
-        targetScreen = ProfileScreen();
-        break;
-      default:
-        targetScreen = DashboardScreen();
-    }
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => targetScreen));
-  }
+  // void _onNavTap(int index) {
+  //   setState(() => _currentIndex = index);
+  //   // Navigation example
+  //   Widget targetScreen;
+  //   switch (index) {
+  //     case 0:
+  //       targetScreen = DashboardScreen();
+  //       break;
+  //     case 1:
+  //       targetScreen = HistroyScreen();
+  //       break;
+  //     case 2:
+  //       targetScreen = NotificationsScreen();
+  //       break;
+  //     case 3:
+  //       targetScreen = ProfileScreen();
+  //       break;
+  //     default:
+  //       targetScreen = DashboardScreen();
+  //   }
+  //   Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => targetScreen));
+  // }
 
   @override
   void dispose() {
-    _scrollController.removeListener(_handleScroll);
-    _scrollController.dispose();
+    // _scrollController.removeListener(_handleScroll);
+    // _scrollController.dispose();
     _tabController.dispose();
     super.dispose();
   }
@@ -255,7 +260,7 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
                 ),
                 Expanded(
                   child: ListView.builder(
-                    controller: _scrollController,
+                    controller: widget.scrollController,
                     padding: EdgeInsets.only(left: 16, right: 16, bottom: 100), // space for floating nav
                     itemCount: 10,
                     itemBuilder: (context, index) {
@@ -294,25 +299,25 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
           ),
 
           // Floating Navigation Bar (always on top of list)
-          Positioned(
-            bottom: 16,
-            left: 16,
-            right: 16,
-            child: AnimatedOpacity(
-              duration: Duration(milliseconds: 300),
-              opacity: _showFloatingNav ? 1.0 : 0.0,
-              child: Material(
-                borderRadius: BorderRadius.circular(30),
-                elevation: 6,
-                color: Colors.white,
-                child: Container(
-                  height: 60,
-                  padding: EdgeInsets.symmetric(horizontal: 12),
-                  child: _buildFloatingNavBar(),
-                ),
-              ),
-            ),
-          ),
+          // Positioned(
+          //   bottom: 16,
+          //   left: 16,
+          //   right: 16,
+          //   child: AnimatedOpacity(
+          //     duration: Duration(milliseconds: 300),
+          //     opacity: _showFloatingNav ? 1.0 : 0.0,
+          //     child: Material(
+          //       borderRadius: BorderRadius.circular(30),
+          //       elevation: 6,
+          //       color: Colors.white,
+          //       child: Container(
+          //         height: 60,
+          //         padding: EdgeInsets.symmetric(horizontal: 12),
+          //         child: _buildFloatingNavBar(),
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
@@ -412,17 +417,17 @@ class _DashboardScreenState extends State<DashboardScreen> with SingleTickerProv
     );
   }
 
-  Widget _buildFloatingNavBar() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        _buildNavItem(Icons.home_outlined, Icons.home_rounded, 'Home', _currentIndex == 0, () => _onNavTap(0)),
-        _buildNavItem(Icons.confirmation_number_outlined, Icons.confirmation_number_rounded, 'Tickets', _currentIndex == 1, () => _onNavTap(1)),
-        _buildNavItem(Icons.notifications_outlined, Icons.notifications_rounded, 'Alerts', _currentIndex == 2, () => _onNavTap(2)),
-        _buildNavItem(Icons.person_outline, Icons.person_rounded, 'Profile', _currentIndex == 3, () => _onNavTap(3)),
-      ],
-    );
-  }
+  // Widget _buildFloatingNavBar() {
+  //   return Row(
+  //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+  //     children: [
+  //       _buildNavItem(Icons.home_outlined, Icons.home_rounded, 'Home', _currentIndex == 0, () => _onNavTap(0)),
+  //       _buildNavItem(Icons.confirmation_number_outlined, Icons.confirmation_number_rounded, 'Tickets', _currentIndex == 1, () => _onNavTap(1)),
+  //       _buildNavItem(Icons.notifications_outlined, Icons.notifications_rounded, 'Alerts', _currentIndex == 2, () => _onNavTap(2)),
+  //       _buildNavItem(Icons.person_outline, Icons.person_rounded, 'Profile', _currentIndex == 3, () => _onNavTap(3)),
+  //     ],
+  //   );
+  // }
 
   Widget _buildNavItem(IconData icon, IconData activeIcon, String label, bool isActive, VoidCallback onTap) {
     return GestureDetector(
