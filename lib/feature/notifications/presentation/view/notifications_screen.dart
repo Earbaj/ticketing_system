@@ -253,18 +253,15 @@ class NotificationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return Container(
       margin: EdgeInsets.only(bottom: 12),
-      elevation: 1,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
+      decoration: BoxDecoration(
+        color: const Color(0xFFffe696e),
+        borderRadius: BorderRadius.circular(15),
       ),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          border: notification.isRead
-              ? null
-              : Border.all(color: Color(0xFFffe696e).withOpacity(0.3), width: 1.5),
         ),
         child: Padding(
           padding: EdgeInsets.all(16),
@@ -276,7 +273,7 @@ class NotificationCard extends StatelessWidget {
                 width: 48,
                 height: 48,
                 decoration: BoxDecoration(
-                  color: notification.iconColor.withOpacity(0.1),
+                  color: Colors.white,
                   shape: BoxShape.circle,
                 ),
                 child: Icon(
@@ -302,7 +299,7 @@ class NotificationCard extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black87,
+                              color: Colors.white,
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -313,7 +310,7 @@ class NotificationCard extends StatelessWidget {
                             width: 8,
                             height: 8,
                             decoration: BoxDecoration(
-                              color: Color(0xFFffe696e),
+                              color: Colors.white,
                               shape: BoxShape.circle,
                             ),
                           ),
@@ -326,7 +323,7 @@ class NotificationCard extends StatelessWidget {
                       notification.message,
                       style: TextStyle(
                         fontSize: 14,
-                        color: Colors.grey.shade700,
+                        color: Colors.white70,
                         height: 1.3,
                       ),
                       maxLines: 2,
@@ -341,7 +338,7 @@ class NotificationCard extends StatelessWidget {
                         Container(
                           padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                           decoration: BoxDecoration(
-                            color: _getTypeColor(notification.type).withOpacity(0.1),
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Text(
@@ -358,7 +355,7 @@ class NotificationCard extends StatelessWidget {
                           notification.time,
                           style: TextStyle(
                             fontSize: 12,
-                            color: Colors.grey.shade500,
+                            color: Colors.white,
                           ),
                         ),
                       ],
