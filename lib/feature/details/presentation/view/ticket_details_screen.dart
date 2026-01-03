@@ -14,12 +14,19 @@ class TicketDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Color(0xFFffe696e),
+        leading: GestureDetector(
+          onTap: () => Navigator.pop(context),
+          child: const Icon(Icons.arrow_back, color: Colors.white),
+        ),
+        title: Text("${ticket.busName}",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              /// HEADER
-              header(context, ticket.busName),
               /// BUS IMAGE
               busImage(),
               /// BUS INFO
