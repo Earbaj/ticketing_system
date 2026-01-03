@@ -26,7 +26,7 @@ class _MainScreenState extends State<MainScreen> {
     _scrollController.addListener(_handleScroll);
     _screens = [
       DashboardScreen(scrollController: _scrollController,),
-      HistroyScreen(),
+      HistoryScreen(),
       NotificationsScreen(),
       ProfileScreen(),
     ];
@@ -88,25 +88,6 @@ class _MainScreenState extends State<MainScreen> {
 
   void _onNavTap(int index) {
     setState(() => _currentIndex = index);
-    // Navigation example
-    // Widget targetScreen;
-    // switch (index) {
-    //   case 0:
-    //     targetScreen = DashboardScreen();
-    //     break;
-    //   case 1:
-    //     targetScreen = HistroyScreen();
-    //     break;
-    //   case 2:
-    //     targetScreen = NotificationsScreen();
-    //     break;
-    //   case 3:
-    //     targetScreen = ProfileScreen();
-    //     break;
-    //   default:
-    //     targetScreen = DashboardScreen();
-    // }
-    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => targetScreen));
   }
 
 
