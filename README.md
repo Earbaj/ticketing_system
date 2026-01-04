@@ -82,6 +82,8 @@ lib/
 ├── feature/
 │   ├── auth/           # Authentication (Login, Sign Up, Forgot Password)
 │   ├── dashboard/      # Home screen and Ticket cards
+│   ├── history/        # Ticket history and cancellation
+│   ├── notifications/  # Ticket Notifications on Purches,Cancelations,Delay,Maintainance
 │   ├── details/        # Ticket details, Seat selection, Payment flow
 │   └── profile/        # User profile management
 ├── main.dart           # Application entry point
