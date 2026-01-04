@@ -73,6 +73,12 @@ A comprehensive mobile application for booking bus tickets, built with Flutter. 
 
 ```
 lib/
+├── core/
+│   ├── constant/
+│   │   └── app_color.dart
+│   ├── network/ 
+│   ├── network/
+│   └── utils/
 ├── feature/
 │   ├── auth/           # Authentication (Login, Sign Up, Forgot Password)
 │   ├── dashboard/      # Home screen and Ticket cards
