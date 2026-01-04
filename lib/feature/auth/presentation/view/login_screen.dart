@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ticket_system/feature/auth/presentation/view/sign_up_screen.dart';
 import 'package:ticket_system/feature/dashboard/presentation/view/dashboard_screen.dart';
 
+import '../../../dashboard/presentation/view/main_screen.dart';
 import 'forget_password_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -108,7 +109,7 @@ class LoginScreen extends StatelessWidget {
                       GestureDetector(
                         onTap: (){
                           Navigator.push(context,
-                              MaterialPageRoute(builder: (context)=> DashboardScreen()));
+                              MaterialPageRoute(builder: (context)=> MainScreen()));
                         },
                         child: Container(
                           height: 50,

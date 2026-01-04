@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constant/app_color.dart';
 import '../widget/ticket_details_widget.dart';
 
 class ProceedPaymentScreen extends StatefulWidget {
@@ -30,11 +31,19 @@ class _ProceedPaymentScreenState extends State<ProceedPaymentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: AppColor.primaryColor,
+        leading: GestureDetector(
+          onTap: () => Navigator.pop(context),
+          child: const Icon(Icons.arrow_back, color: Colors.white),
+        ),
+        title: Text("${widget.busName}",style: TextStyle(color: Colors.white),),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              header(context, widget.busName),
               /// Ticket Card
               Padding(
                 padding: const EdgeInsets.all(20),
@@ -139,7 +148,7 @@ class _ProceedPaymentScreenState extends State<ProceedPaymentScreen> {
                     height: 50,
                     width: 220,
                     decoration: BoxDecoration(
-                      color: Color(0xFFffe696e),
+                      color: AppColor.primaryColor,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: const Center(

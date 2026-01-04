@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../../../../core/constant/app_color.dart';
+
 Widget header(BuildContext context, String title) {
   return Container(
     height: 70,
@@ -56,7 +58,7 @@ Widget infoCard({
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-          color: Color(0xFFffe696e)
+          color: AppColor.primaryColor
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

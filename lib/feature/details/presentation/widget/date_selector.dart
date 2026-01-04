@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constant/app_color.dart';
+
 
 class DateSelector extends StatelessWidget {
   final DateTime selectedDate;
@@ -28,11 +30,11 @@ class DateSelector extends StatelessWidget {
               width: 70,
               margin: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: isSelected ? const Color(0xFFffe696e) : Colors.white,
+                color: isSelected ? AppColor.primaryColor : Colors.white,
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
                   color: isSelected
-                      ? const Color(0xFFffe696e)
+                      ? AppColor.primaryColor
                       : Colors.black26,
                 ),
               ),

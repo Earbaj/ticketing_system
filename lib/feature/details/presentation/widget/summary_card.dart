@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constant/app_color.dart';
+
 class SummaryCard extends StatelessWidget {
   final Set<String> selectedSeats;
   final double seatPrice;
@@ -24,7 +26,7 @@ class SummaryCard extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Color(0xFFffe696e),
+          color: AppColor.primaryColor,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(

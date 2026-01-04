@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/constant/app_color.dart';
+
 class TicketCard extends StatelessWidget {
   final String busName;
   const TicketCard({super.key, required this.busName});
@@ -11,16 +13,17 @@ class TicketCard extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        gradient: const LinearGradient(
-          colors: [
-            // Color(0xFF1E1E2C),
-            // Color(0xFF2A2A3C),
-            Color(0xFFffe696e),
-            Color(0xFFffe696e)
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
+        color: AppColor.primaryColor
+        // gradient: const LinearGradient(
+        //   colors: [
+        //     // Color(0xFF1E1E2C),
+        //     // Color(0xFF2A2A3C),
+        //     Color(0xFFffe696e),
+        //     Color(0xFFffe696e)
+        //   ],
+        //   begin: Alignment.topLeft,
+        //   end: Alignment.bottomRight,
+        // ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
