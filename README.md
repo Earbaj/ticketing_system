@@ -38,9 +38,14 @@ A comprehensive mobile application for booking bus tickets, built with Flutter. 
 |:---------------------------------------------:|:-------------------------------------------:|:------------------------------------------------:|
 | ![Login Screen](assets/screenshots/login.png) | ![Dashboard](assets/screenshots/signup.png) | ![Seat Selection](assets/screenshots/forget.png) |
 
-| Payment | Profile | Ticket Receipt |
-| :---: | :---: | :---: |
-| ![Payment](assets/screenshots/payment_dummy.png) | ![Profile](assets/screenshots/profile_dummy.png) | ![Receipt](assets/screenshots/receipt_dummy.png) |
+|                  Dashboard                   |                  History                   |                  Notifications                   |
+|:--------------------------------------------:|:------------------------------------------:|:------------------------------------------------:|
+| ![Payment](assets/screenshots/dashboard.png) | ![Profile](assets/screenshots/history.png) | ![Receipt](assets/screenshots/notifications.png) |
+
+
+|                  Profile                   |
+|:------------------------------------------:|
+| ![Payment](assets/screenshots/profile.png) |
 
 > *Note: Screenshots are placeholders. Actual app visuals may vary.*
 
