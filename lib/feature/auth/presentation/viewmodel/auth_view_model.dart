@@ -9,20 +9,19 @@ class AuthViewModel extends ChangeNotifier {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-  Future<void> login(String email, String password) async {
-    print("Login View model started");
+  Future<bool> login(String email, String password) async {
     _isLoading = true;
     notifyListeners();
 
     try {
       final user = await loginUsecase(email, password);
-      // Handle success (e.g., save token, navigate)
-      print("Logged in as: ${user.email}");
-    } catch (e) {
-      // Handle error
-    } finally {
       _isLoading = false;
       notifyListeners();
+      return true; // Success
+    } catch (e) {
+      _isLoading = false;
+      notifyListeners();
+      return false; // Failure
     }
   }
 }

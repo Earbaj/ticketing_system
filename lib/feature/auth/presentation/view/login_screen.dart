@@ -173,10 +173,23 @@ class _LoginScreenState extends State<LoginScreen> {
                             onTap: authVM.isLoading
                                 ? null
                                 : () async {
-                              await authVM.login(
+                              final success = await authVM.login(
                                 _emailController.text.trim(),
                                 _passwordController.text.trim(),
                               );
+                              // 2. If successful and the widget is still in the tree, navigate
+                              if (success && context.mounted) {
+                                Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => MainScreen()),
+                                      (route) => false, // This clears the navigation stack so user can't go back to Login
+                                );
+                              } else if (!success && context.mounted) {
+                                // Optional: Show error snackbar
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(content: Text("Login Failed. Please check your credentials.")),
+                                );
+                              }
                             },
                             child: Container(
                               height: 50,
