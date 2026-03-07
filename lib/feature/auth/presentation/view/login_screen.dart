@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:ticket_system/feature/auth/presentation/view/sign_up_screen.dart';
 import 'package:ticket_system/feature/dashboard/presentation/view/dashboard_screen.dart';
 
 import '../../../../core/constant/app_color.dart';
 import '../../../../core/helper/screen_size_helper.dart';
 import '../../../dashboard/presentation/view/main_screen.dart';
+import '../viewmodel/auth_view_model.dart';
 import 'forget_password_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  // Local controllers for input handling
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                   Image.asset("assets/images/login_page_logo.png",fit: BoxFit.scaleDown,width: 420,height: 300,),
                   SizedBox(height: ScreenHelper.dynamicHeight(context, 0.15),),
                   TextFormField(
-                    // controller: controller,
+                    controller: _emailController,
                     // obscureText: obscureText,
                     // validator: validator,
                     // onChanged: onChanged,
@@ -97,7 +115,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10,),
                   TextFormField(
-                    // controller: controller,
+                    controller: _passwordController,
                     // obscureText: obscureText,
                     // validator: validator,
                     // onChanged: onChanged,
@@ -146,31 +164,50 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                        onTap: (){
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context)=> MainScreen()));
-                        },
-                        child: Container(
-                          height: 50,
-                          width: 140,
-                          decoration: BoxDecoration(
-                            color: Color(0xFFffe696e),
-                            borderRadius: BorderRadius.circular(15),
+                  Consumer<AuthViewModel>(
+                    builder: (context, authVM, child) {
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          GestureDetector(
+                            onTap: authVM.isLoading
+                                ? null
+                                : () async {
+                              await authVM.login(
+                                _emailController.text.trim(),
+                                _passwordController.text.trim(),
+                              );
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 140,
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFffe696e),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: authVM.isLoading
+                                  ? const Center(
+                                child: SizedBox(
+                                  height: 20,
+                                  width: 20,
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                    strokeWidth: 2,
+                                  ),
+                                ),
+                              )
+                                  : const Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text("Login", style: TextStyle(fontSize: 20, color: Colors.white)),
+                                  Icon(Icons.arrow_circle_right_outlined, color: Colors.white)
+                                ],
+                              ),
+                            ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text("Login",style: TextStyle(fontSize: 20,color: Colors.white),),
-                              Icon(Icons.arrow_circle_right_outlined,color: Colors.white,)
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+                        ],
+                      );
+                    },
                   ),
                   SizedBox(height: 10,),
                   Row(
