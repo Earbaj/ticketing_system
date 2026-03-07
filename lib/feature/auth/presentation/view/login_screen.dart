@@ -22,7 +22,9 @@ class LoginScreen extends StatelessWidget {
             height: double.infinity,
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColorDark,
+              color: Theme.of(context).brightness == Brightness.light
+                  ? AppColor.surfaceLight
+                  : AppColor.surfaceDark,
               borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(ScreenHelper.dynamicHeight(context, 0.5)),
                   topRight: Radius.circular(ScreenHelper.dynamicHeight(context, 0.5))
